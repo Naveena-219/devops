@@ -1,11 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('build') {
+    stage('stage1') {
       steps {
         sh '''valhost=$(hostname -i)
 
-echo\'ipadress=\'$valhost'''
+'''
+        sh 'echo \'hostname=\'$valhost'
       }
     }
 
