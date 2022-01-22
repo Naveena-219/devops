@@ -1,17 +1,20 @@
 pipeline {
   agent {
     node {
-      label 'slave 1'
+      label 'node1'
     }
 
   }
   stages {
-    stage('stage1') {
+    stage('slave1') {
       steps {
-        sh '''valhost=$(hostname -i)
+        sh 'echo "welcome slave1"'
+      }
+    }
 
-'''
-        sh 'echo \'hostname=\'$valhost'
+    stage('slave 2') {
+      steps {
+        sh 'echo "welcome slave2"'
       }
     }
 
