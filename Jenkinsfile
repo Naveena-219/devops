@@ -1,22 +1,24 @@
 pipeline {
-  agent {
-    node {
-      label 'node1'
-    }
-
-  }
+  agent any
   stages {
-    stage('slave1') {
+    stage('stage1') {
       steps {
-        sh 'echo "welcome slave1"'
+        sh '''valhost=$(hostname -i) '''
+       
       }
     }
-
-    stage('slave 2') {
+     stage('stage2') {
       steps {
-        sh 'echo "welcome slave2"'
+        sh '''memory=$(free) '''
+       
       }
     }
-
+     stage('stage3') {
+      steps {
+        sh '''version=$(cat /etc/os-release) '''
+       
+      }
+    }
+    
   }
 }
